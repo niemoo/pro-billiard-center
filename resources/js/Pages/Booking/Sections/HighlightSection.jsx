@@ -1,8 +1,8 @@
 export default function HighlightSection() {
     return (
-        <div className="lg:flex w-full justify-between gap-10 px-10">
+        <div className="lg:flex w-full justify-between gap-10 lg:pl-10 lg:px-0 px-10">
             {/* Left Side Description */}
-            <div className="text-white lg:w-1/2 w-full">
+            <div className="text-white lg:w-1/2 w-full pt-10">
                 {/* Highlight */}
                 <div>
                     <h2 className="text-3xl font-bold text-[#EFBF04]">
@@ -52,7 +52,7 @@ export default function HighlightSection() {
 
             {/* Right Side Image */}
             <div className="lg:mt-0 mt-10 lg:w-1/2 w-full">
-                <img src="images/first_booking.png" alt="" />
+                <img src="images/booking_highlight_section.png" alt="" />
             </div>
         </div>
     );

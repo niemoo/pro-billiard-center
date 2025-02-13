@@ -1,6 +1,6 @@
 export default function ProductCard({ product }) {
     return (
-        <div key={product.title} className="lg:flex grid gap-10">
+        <div className="lg:flex grid gap-10">
             {/* Image */}
             <img
                 src={product.image}

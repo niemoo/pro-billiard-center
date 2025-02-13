@@ -2,15 +2,21 @@ export default function BookForm() {
     return (
         <>
             <select
-                name="value"
+                id="venue"
+                name="venue"
+                defaultValue=""
                 className="select select-bordered w-full max-w-xs bg-[#EFBF04] flex items-center font-semibold justify-center mx-auto"
             >
-                <option disabled selected>
-                    Venue
+                <option disabled>Venue</option>
+                <option className="font-semibold" value="MNC Center">
+                    MNC Center
                 </option>
-                <option className="font-semibold">MNC Center</option>
-                <option className="font-semibold">MNC Studios</option>
-                <option className="font-semibold">Lido Lake Resort</option>
+                <option className="font-semibold" value="MNC Studios">
+                    MNC Studios
+                </option>
+                <option className="font-semibold" value="Lido Lake Resort">
+                    Lido Lake Resort
+                </option>
             </select>
 
             <form>
@@ -53,8 +59,8 @@ export default function BookForm() {
                         </label>
                         <input
                             type="text"
-                            id="email"
-                            name="email"
+                            id="phoneNumber"
+                            name="phoneNumber"
                             className="rounded-md bg-[#FFFFFF]/50"
                         />
                     </div>
@@ -66,8 +72,8 @@ export default function BookForm() {
                             Category
                         </label>
                         <select
-                            name="category"
                             id="category"
+                            name="category"
                             className="rounded-md bg-[#FFFFFF]/50"
                         >
                             <option value="VIP" className="text-black">

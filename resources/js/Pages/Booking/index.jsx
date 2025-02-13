@@ -9,7 +9,7 @@ export default function Booking({ title }) {
             <Head title={title} />
 
             {/* Body Page */}
-            <div className="bg-gradient-to-b from-black via-[#000000BF] to-black w-full py-10">
+            <div className="bg-gradient-to-b from-black via-[#000000BF] to-black w-full pb-10">
                 <HighlightSection />
                 <BenefitSection />
                 <BookSection />

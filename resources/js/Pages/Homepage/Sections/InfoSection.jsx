@@ -4,13 +4,15 @@ import { BiSolidTimeFive } from "react-icons/bi";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { ImSpoonKnife } from "react-icons/im";
 import { LiaMosqueSolid } from "react-icons/lia";
-import CardDetails from "@/Components/CardDetails";
+import InfoDetailCard from "@/Pages/Homepage/Components/InfoDetailCard";
+import FacilityDetailCard from "../Components/FacilityDetailCard";
 
 export default function InfoSection() {
     return (
         <section className="bg-gradient-to-b from-black via-[#000000BF] to-black w-full">
             {/* FIRST */}
             <div className="md:flex grid gap-10 justify-between items-center mx-auto p-10">
+                {/* Left Content */}
                 <div>
                     <h3 className="text-left text-lg text-[#EFBF04] font-extrabold">
                         THE BIGGEST INDOOR
@@ -23,6 +25,8 @@ export default function InfoSection() {
                         commodo consequat.
                     </p>
                 </div>
+
+                {/* Center Content */}
                 <div>
                     <h3 className="text-center text-lg text-[#EFBF04] font-extrabold">
                         EXCLUSIVE TABLE
@@ -35,6 +39,8 @@ export default function InfoSection() {
                         commodo consequat.
                     </p>
                 </div>
+
+                {/* Right Content */}
                 <div>
                     <h3 className="text-right text-lg text-[#EFBF04] font-extrabold">
                         PREMIUM GEAR
@@ -54,11 +60,12 @@ export default function InfoSection() {
                 {/* Left Image */}
                 <div className="lg:w-2/5 w-full">
                     <img
-                        src="images/info_section.png"
+                        src="images/info_section_kiri.png"
                         alt="Info Section"
                         className="w-full"
                     />
                 </div>
+
                 {/* Center Info */}
                 <div className="lg:w-3/5 w-full">
                     {/* Info Title */}
@@ -69,7 +76,7 @@ export default function InfoSection() {
                     {/* Info Details */}
                     <div className="grid gap-5 mt-5">
                         {info.map((item, index) => (
-                            <CardDetails index={index} item={item} />
+                            <InfoDetailCard key={index} item={item} />
                         ))}
                     </div>
 
@@ -85,20 +92,15 @@ export default function InfoSection() {
                     {/* Facility Details */}
                     <div className="grid lg:grid-cols-3 grid-cols-2 gap-5 justify-items-center w-full md:pl-5">
                         {facility.map((item, index) => (
-                            <div
-                                key={index}
-                                className="flex items-center gap-5 text-lg font-semibold text-white w-full"
-                            >
-                                <div>{item.icon}</div>
-                                <p>{item.description}</p>
-                            </div>
+                            <FacilityDetailCard key={index} item={item} />
                         ))}
                     </div>
                 </div>
+
                 {/* Right Image */}
                 <div className="lg:w-2/5 w-full">
                     <img
-                        src="images/info_section.png"
+                        src="images/info_section_kanan.png"
                         alt="Info Section"
                         className="w-full"
                     />
@@ -111,11 +113,11 @@ export default function InfoSection() {
 const info = [
     {
         icon: <MdAttachMoney className="text-3xl" />,
-        description: "Start from 100.000 / Hours",
+        description: "Start from Rp 100.000 / Hours",
     },
     {
         icon: <BiSolidTimeFive className="text-3xl" />,
-        description: "Every Days : 10.00 Am - 10.00 Pm",
+        description: "Every Days : 10.00 AM - 10.00 PM",
     },
     {
         icon: <FaMapLocationDot className="text-3xl" />,
