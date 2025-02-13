@@ -1,4 +1,4 @@
-import { products } from "@/Data/shop";
+import { products } from "@/Data/products";
 import { Head } from "@inertiajs/react";
 import { useState } from "react";
 
@@ -35,7 +35,7 @@ export default function Shop({ title }) {
                         </button>
                     ))}
                 </div>
-                <div className="grid gap-10 items-center mx-auto py-5 lg:px-20 px-5 w-full">
+                <div className="grid gap-10 items-center mx-auto py-5 lg:px-20 px-5 w-full mt-10">
                     {products
                         .filter((product) => product.category === items)
                         .map((product) => (

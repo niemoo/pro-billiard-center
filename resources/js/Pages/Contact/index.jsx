@@ -1,11 +1,17 @@
 import { Head } from "@inertiajs/react";
+import ContactSection from "./Sections/ContactSection";
+import LocationSection from "./Sections/LocationSection";
 
 export default function Contact({ title }) {
     return (
-        <div>
+        <>
             <Head title={title} />
 
-            <h1>Contact</h1>
-        </div>
+            {/* Body Page */}
+            <div className="bg-gradient-to-b from-black via-[#000000BF] to-black w-full py-10">
+                <ContactSection />
+                <LocationSection />
+            </div>
+        </>
     );
 }

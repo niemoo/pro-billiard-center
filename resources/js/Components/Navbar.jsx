@@ -1,25 +1,31 @@
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 import { useEffect, useState } from "react";
 
 export default function Navbar() {
+    const { url } = usePage(); // Get the current page URL
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    console.log(isMenuOpen);
+
+    // Function to check if a link is active
+    const isActive = (path) => (url === path ? "text-[#EFBF04]" : "text-white");
 
     return (
-        <nav className="bg-white/50 w-full py-3">
+        <nav className="bg-black/50 w-full py-3">
             <ul className="md:flex hidden justify-center items-center space-x-20">
-                <li className="text-lg font-semibold hover:text-[#EFBF04]">
-                    <Link href="/">Home</Link>
-                </li>
-                <li className="text-lg font-semibold hover:text-[#EFBF04]">
-                    <Link href="/booking">Booking</Link>
-                </li>
-                <li className="text-lg font-semibold hover:text-[#EFBF04]">
-                    <Link href="/shop">Shop</Link>
-                </li>
-                <li className="text-lg font-semibold hover:text-[#EFBF04]">
-                    <Link href="/contact">Contact Us</Link>
-                </li>
+                {["/", "/booking", "/shop", "/contact"].map((path, index) => (
+                    <li
+                        key={index}
+                        className={`text-lg font-semibold hover:text-[#EFBF04] ${isActive(
+                            path
+                        )}`}
+                    >
+                        <Link href={path}>
+                            {path === "/"
+                                ? "Home"
+                                : path.slice(1).charAt(0).toUpperCase() +
+                                  path.slice(2)}
+                        </Link>
+                    </li>
+                ))}
             </ul>
             <div className="flex justify-end items-center">
                 <label className="btn swap swap-rotate md:hidden">

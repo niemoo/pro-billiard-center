@@ -1,7 +1,7 @@
 import { Head } from "@inertiajs/react";
-import HighlightSection from "./Layouts/HighlightSection";
-import BenefitSection from "./Layouts/BenefitSection";
-import BookSection from "./Layouts/BookSection";
+import HighlightSection from "./Sections/HighlightSection";
+import BenefitSection from "./Sections/BenefitSection";
+import BookSection from "./Sections/BookSection";
 
 export default function Booking({ title }) {
     return (
