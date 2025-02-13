@@ -3,6 +3,7 @@ import { LuPhoneCall } from "react-icons/lu";
 import { CgDanger } from "react-icons/cg";
 import { MdOutlineEmail } from "react-icons/md";
 import ContactForm from "../Components/ContactForm";
+import ContactInfoCard from "../Components/ContactInfoCard";
 
 export default function ContactSection() {
     return (
@@ -16,19 +17,7 @@ export default function ContactSection() {
                 {/* Info Side */}
                 <div className="lg:w-1/2 w-full grid gap-5">
                     {contactInfo.map((info, index) => (
-                        <div key={index} className="flex gap-5">
-                            <div className="text-3xl text-[#EFBF04]">
-                                {info.icon}
-                            </div>
-                            <div className="font-semibold text-white">
-                                <p className="text-xl text-[#EFBF04] mb-2">
-                                    {info.title}
-                                </p>
-                                {info.details.map((detail, idx) => (
-                                    <p key={idx}>{detail}</p>
-                                ))}
-                            </div>
-                        </div>
+                        <ContactInfoCard key={index} info={info} />
                     ))}
                 </div>
 
