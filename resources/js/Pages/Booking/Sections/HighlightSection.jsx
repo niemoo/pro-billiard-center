@@ -1,7 +1,7 @@
 export default function HighlightSection() {
     return (
         <div className="lg:flex w-full justify-between gap-10 px-10">
-            {/* Left Side */}
+            {/* Left Side Description */}
             <div className="text-white lg:w-1/2 w-full">
                 {/* Highlight */}
                 <div>
@@ -50,7 +50,7 @@ export default function HighlightSection() {
                 </div>
             </div>
 
-            {/* Right Side */}
+            {/* Right Side Image */}
             <div className="lg:mt-0 mt-10 lg:w-1/2 w-full">
                 <img src="images/first_booking.png" alt="" />
             </div>
