@@ -42,7 +42,7 @@ export default function Header() {
                 className="md:h-24 h-14 md:block hidden"
             />
 
-            <div className="flex justify-end items-center text-white">
+            <div className="flex justify-end items-center text-white lg:hidden">
                 <button
                     className="md:hidden p-2"
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
