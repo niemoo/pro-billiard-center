@@ -1,11 +1,19 @@
 import { useState } from "react";
 import ProductsList from "../Components/ProductsList";
+import SearchBar from "../Components/SearchBar";
 
 export default function ProductsSection() {
     const [items, setItems] = useState("table");
 
     return (
         <>
+            {/* Title */}
+            <h1 className="text-3xl font-semibold text-center text-[#EFBF04]">
+                PBC STORE
+            </h1>
+
+            <SearchBar />
+
             {/* Desktop Menu Tab */}
             <div className="lg:flex hidden px-10 border border-[#EFBF04] rounded-lg bg-black w-fit mx-auto">
                 {menuItems.map((item) => (

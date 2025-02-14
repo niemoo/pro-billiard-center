@@ -3,22 +3,22 @@ export default function ContactForm() {
         <form className="grid gap-5 lg:w-1/2 w-full">
             <input
                 type="text"
-                className="w-full rounded-sm bg-[#FFFFFF]/50 font-semibold text-black"
+                className="w-full rounded-sm bg-[#FFFFFF]/50 font-semibold text-black placeholder:text-zinc-700"
                 placeholder="Full Name"
             />
             <input
                 type="text"
-                className="w-full rounded-sm bg-[#FFFFFF]/50 font-semibold text-black"
+                className="w-full rounded-sm bg-[#FFFFFF]/50 font-semibold text-black placeholder:text-zinc-700"
                 placeholder="Phone Number"
             />
             <input
                 type="email"
-                className="w-full rounded-sm bg-[#FFFFFF]/50 font-semibold text-black"
+                className="w-full rounded-sm bg-[#FFFFFF]/50 font-semibold text-black placeholder:text-zinc-700"
                 placeholder="Email"
             />
             <textarea
                 type="text"
-                className="w-full rounded-sm bg-[#FFFFFF]/50 font-semibold text-black"
+                className="w-full rounded-sm bg-[#FFFFFF]/50 font-semibold text-black placeholder:text-zinc-700"
                 placeholder="Message"
                 rows="5"
             ></textarea>
