@@ -17,8 +17,8 @@ export default function Navbar() {
     ];
 
     const authItems = [
-        { name: "Register", path: "/register" },
-        { name: "Login", path: "/login" },
+        { name: "REGISTER", path: "/register" },
+        { name: "LOGIN", path: "/login" },
     ];
 
     return (
