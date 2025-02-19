@@ -1,3 +1,4 @@
+import { authItems, menuItems } from "@/Data/menu";
 import { Link, usePage } from "@inertiajs/react";
 import { useState } from "react";
 
@@ -7,19 +8,6 @@ export default function Navbar() {
 
     // Function to check if a link is active
     const isActive = (path) => (url === path ? "text-[#EFBF04]" : "text-white");
-
-    // Menu List
-    const menuItems = [
-        { name: "Home", path: "/" },
-        { name: "Booking", path: "/booking" },
-        { name: "Shop", path: "/shop" },
-        { name: "Contact", path: "/contact" },
-    ];
-
-    const authItems = [
-        { name: "Register", path: "/register" },
-        { name: "Login", path: "/login" },
-    ];
 
     return (
         <nav className="bg-black/50 w-full lg:py-3 p-0">

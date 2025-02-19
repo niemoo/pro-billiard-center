@@ -3,16 +3,16 @@ import HighlightSection from "./Sections/HighlightSection";
 import BenefitSection from "./Sections/BenefitSection";
 import BookSection from "./Sections/BookSection";
 
-export default function Booking({ title }) {
+export default function Booking(props) {
     return (
         <>
-            <Head title={title} />
+            <Head title={props.title} />
 
             {/* Body Page */}
             <div className="bg-gradient-to-b from-black via-[#000000BF] to-black w-full pb-10">
                 <HighlightSection />
                 <BenefitSection />
-                <BookSection />
+                <BookSection venues={props.venues.data} />
             </div>
         </>
     );

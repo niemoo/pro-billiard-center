@@ -3,15 +3,15 @@ import InfoSection from "./Sections/InfoSection";
 import GallerySection from "./Sections/GallerySection";
 import HeroSection from "./Sections/HeroSection";
 
-export default function Welcome({ title }) {
+export default function Welcome(props) {
     return (
         <>
-            <Head title={title} />
+            <Head title={props.title} />
 
             {/* Body Page */}
             <div>
                 <HeroSection />
-                <InfoSection />
+                <InfoSection venues={props.venues.data} />
                 <GallerySection />
             </div>
         </>

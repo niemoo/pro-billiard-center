@@ -1,23 +1,95 @@
-export default function BookForm() {
+import React, { useState, useRef, useEffect } from "react";
+
+export default function BookForm({ venues }) {
+    const [isOpen, setIsOpen] = useState(false);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [selectedState, setSelectedState] = useState(venues[0]);
+    const dropdownRef = useRef(null);
+
+    const filteredStates = venues.filter((state) =>
+        state.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (
+                dropdownRef.current &&
+                !dropdownRef.current.contains(event.target)
+            ) {
+                setIsOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () =>
+            document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
+    const handleStateSelect = (state) => {
+        setSelectedState(state);
+        setSearchTerm("");
+        setIsOpen(false);
+    };
+
     return (
         <>
-            <select
-                id="venue"
-                name="venue"
-                defaultValue=""
-                className="select select-bordered w-full max-w-xs bg-[#EFBF04] flex items-center font-semibold justify-center mx-auto"
-            >
-                <option disabled>Venue</option>
-                <option className="font-semibold" value="MNC Center">
-                    MNC Center
-                </option>
-                <option className="font-semibold" value="MNC Studios">
-                    MNC Studios
-                </option>
-                <option className="font-semibold" value="Lido Lake Resort">
-                    Lido Lake Resort
-                </option>
-            </select>
+            <div ref={dropdownRef} className="relative max-w-xs mx-auto">
+                <div
+                    role="combobox"
+                    aria-expanded={isOpen}
+                    className="relative w-full"
+                >
+                    <div
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="flex items-center justify-between w-full px-2 bg-[#EFBF04] rounded-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                        <input
+                            type="text"
+                            aria-autocomplete="list"
+                            autoComplete="off"
+                            className="select select-bordered w-full bg-[#EFBF04] placeholder:text-black flex items-center font-semibold justify-center mx-auto border-none focus:outline-none"
+                            placeholder={selectedState.name || "MNC Center"}
+                            value={searchTerm}
+                            onChange={(e) => {
+                                setSearchTerm(e.target.value);
+                                setIsOpen(true);
+                            }}
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setIsOpen(true);
+                            }}
+                        />
+                    </div>
+
+                    {isOpen && (
+                        <div
+                            role="listbox"
+                            className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto"
+                        >
+                            {filteredStates.map((venue) => (
+                                <div
+                                    key={venue.id}
+                                    role="option"
+                                    aria-selected={selectedState === venue.name}
+                                    onClick={() => handleStateSelect(venue)}
+                                    className={`px-4 py-2 cursor-pointer hover:bg-gray-100 ${
+                                        selectedState === venue.name
+                                            ? "bg-gray-50"
+                                            : ""
+                                    }`}
+                                >
+                                    {venue.name}
+                                </div>
+                            ))}
+                            {filteredStates.length === 0 && (
+                                <div className="px-4 py-2 text-black">
+                                    No results found
+                                </div>
+                            )}
+                        </div>
+                    )}
+                </div>
+            </div>
 
             <form>
                 {/* Input Form */}
@@ -97,20 +169,36 @@ export default function BookForm() {
                             name="date"
                             className="rounded-md bg-[#FFFFFF]/50"
                         />
-                    </div>{" "}
-                    <div className="text-black grid gap-2">
-                        <label
-                            htmlFor="hours"
-                            className="text-[#EFBF04] font-semibold"
-                        >
-                            Select Hours
-                        </label>
-                        <input
-                            type="time"
-                            id="hours"
-                            name="hours"
-                            className="rounded-md bg-[#FFFFFF]/50"
-                        />
+                    </div>
+                    <div className="flex gap-5 w-full">
+                        <div className="text-black grid gap-2 w-full">
+                            <label
+                                htmlFor="hours"
+                                className="text-[#EFBF04] font-semibold"
+                            >
+                                Start Time
+                            </label>
+                            <input
+                                type="time"
+                                id="hours"
+                                name="hours"
+                                className="rounded-md bg-[#FFFFFF]/50"
+                            />
+                        </div>
+                        <div className="text-black grid gap-2 w-full">
+                            <label
+                                htmlFor="hours"
+                                className="text-[#EFBF04] font-semibold"
+                            >
+                                End Time
+                            </label>
+                            <input
+                                type="time"
+                                id="hours"
+                                name="hours"
+                                className="rounded-md bg-[#FFFFFF]/50"
+                            />
+                        </div>
                     </div>
                 </div>
 

@@ -1,3 +1,4 @@
+import { authItems, menuItems } from "@/Data/menu";
 import { Link, usePage } from "@inertiajs/react";
 import { useState } from "react";
 
@@ -5,24 +6,9 @@ export default function Header() {
     const { url } = usePage(); // Get the current page URL
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    console.log(isMenuOpen);
-
     // Function to check if a link is active
     const isActive = (path) =>
         url === path ? "bg-[#EFBF04] text-black" : "text-white";
-
-    // Menu List
-    const menuItems = [
-        { name: "Home", path: "/" },
-        { name: "Booking", path: "/booking" },
-        { name: "Shop", path: "/shop" },
-        { name: "Contact", path: "/contact" },
-    ];
-
-    const authItems = [
-        { name: "Register", path: "/register" },
-        { name: "Login", path: "/login" },
-    ];
 
     return (
         <div className="md:h-24 h-20 w-full bg-[#252525] flex justify-between items-center py-10 md:px-20 p-5 border-b-2 border-[#EFBF04] shadow-md">
@@ -126,7 +112,9 @@ export default function Header() {
                             )}`}
                         >
                             <Link href={path}>
-                                <p>{name}</p>
+                                <p className="text-black dark:text-white">
+                                    {name}
+                                </p>
                             </Link>
                         </button>
                     ))}
@@ -140,7 +128,9 @@ export default function Header() {
                             )}`}
                         >
                             <Link href={path}>
-                                <p>{name}</p>
+                                <p className="text-black dark:text-white">
+                                    {name}
+                                </p>
                             </Link>
                         </button>
                     ))}
