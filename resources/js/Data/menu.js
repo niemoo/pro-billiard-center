@@ -3,7 +3,7 @@ export const menuItems = [
     { name: "Booking", path: "/booking" },
     { name: "Shop", path: "/shop" },
     { name: "Event", path: "/events" },
-    { name: "Contact", path: "/contact" },
+    { name: "Contact Us", path: "/contact" },
 ];
 
 export const authItems = [

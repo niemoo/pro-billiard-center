@@ -2,6 +2,8 @@ import { GrLocation } from "react-icons/gr";
 import { LuPhoneCall } from "react-icons/lu";
 import { CgDanger } from "react-icons/cg";
 import { FaTiktok, FaInstagram } from "react-icons/fa6";
+import { RxDashboard } from "react-icons/rx";
+import { Link } from "@inertiajs/react";
 
 export default function Footer() {
     return (
@@ -15,7 +17,9 @@ export default function Footer() {
                             <GrLocation />
                         </div>
                         <div className="text-white">
-                            <p className="text-xl text-[#EFBF04]">Address</p>
+                            <p className="text-xl text-[#EFBF04]">
+                                Headquarters
+                            </p>
                             <p className="mt-2">
                                 Jl. K.H. Wahid Hasyim No.36-38, RT.15/RW.7, Kb.
                                 Sirih, Kec. Menteng, Kota Jakarta Pusat, Daerah
@@ -24,6 +28,7 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
+
                 {/* Contact */}
                 <div className="flex lg:w-1/3 w-full text-white">
                     <div className="flex gap-5 lg:mx-auto">
@@ -39,6 +44,7 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
+
                 {/* Help */}
                 <div className="flex lg:w-1/3 w-full text-white">
                     <div className="flex gap-5 lg:mx-auto">
@@ -56,6 +62,35 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
+
+                {/* Menu */}
+                <div className="flex lg:w-1/3 w-full text-white">
+                    <div className="flex gap-5 lg:mx-auto">
+                        <div className="text-3xl text-[#EFBF04]">
+                            <RxDashboard />
+                        </div>
+                        <div className="text-white">
+                            <p className="text-xl text-[#EFBF04]">Menu</p>
+                            <ul className="mt-2">
+                                <li className="hover:text-[#EFBF04]">
+                                    <Link href="/">Home </Link>
+                                </li>
+                                <li className="hover:text-[#EFBF04]">
+                                    <Link href="/booking">Booking</Link>
+                                </li>
+                                <li className="hover:text-[#EFBF04]">
+                                    <Link href="/shop">Shop</Link>
+                                </li>
+                                <li className="hover:text-[#EFBF04]">
+                                    <Link href="/events">Event</Link>
+                                </li>
+                                <li className="hover:text-[#EFBF04]">
+                                    <Link href="/contact">Contact Us</Link>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             {/* Second Footer */}
@@ -64,7 +99,7 @@ export default function Footer() {
                     <div>
                         <FaTiktok className="text-2xl text-[#EFBF04]" />
                     </div>
-                    <p className="text-white">ProBilliardCenter</p>
+                    <p className="text-white">probilliardcenter</p>
                 </div>
                 <div className="flex justify-center items-center gap-5">
                     <p className="text-white">www.ProBilliardCenter.com</p>
@@ -73,7 +108,7 @@ export default function Footer() {
                     <div>
                         <FaInstagram className="text-2xl text-[#EFBF04]" />
                     </div>
-                    <p className="text-white">ProBilliardCenter_</p>
+                    <p className="text-white">probilliardcenter</p>
                 </div>
             </div>
         </footer>
