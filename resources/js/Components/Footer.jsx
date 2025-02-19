@@ -102,7 +102,7 @@ export default function Footer() {
                     <p className="text-white">probilliardcenter</p>
                 </div>
                 <div className="flex justify-center items-center gap-5">
-                    <p className="text-white">www.ProBilliardCenter.com</p>
+                    <p className="text-white">www.probilliardcenter.com</p>
                 </div>
                 <div className="flex justify-center items-center gap-5">
                     <div>

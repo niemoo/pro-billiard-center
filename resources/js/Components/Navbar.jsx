@@ -11,7 +11,7 @@ export default function Navbar() {
 
     return (
         <nav className="bg-black/50 w-full lg:py-3 p-0">
-            <div className="container mx-auto flex justify-between items-center">
+            <div className="max-w-screen-xl mx-auto flex justify-between items-center">
                 {/* Placeholder agar navbar tetap di tengah */}
                 <div className="w-1/12"></div>
 

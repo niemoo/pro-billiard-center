@@ -7,6 +7,6 @@ export const menuItems = [
 ];
 
 export const authItems = [
-    { name: "MEMBERSHIP", path: "/register" },
-    { name: "SIGN IN", path: "/login" },
+    { name: "MEMBERSHIP", path: "/signup" },
+    { name: "SIGN IN", path: "/signin" },
 ];
