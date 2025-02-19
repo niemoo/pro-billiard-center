@@ -1,13 +1,41 @@
-import { MdAttachMoney } from "react-icons/md";
+import React, { useState, useRef, useEffect } from "react";
 import { FaMotorcycle, FaCar, FaToiletPaper, FaWifi } from "react-icons/fa";
-import { BiSolidTimeFive } from "react-icons/bi";
-import { FaMapLocationDot } from "react-icons/fa6";
 import { ImSpoonKnife } from "react-icons/im";
 import { LiaMosqueSolid } from "react-icons/lia";
 import InfoDetailCard from "@/Pages/Homepage/Components/InfoDetailCard";
 import FacilityDetailCard from "../Components/FacilityDetailCard";
 
-export default function InfoSection() {
+export default function InfoSection({ venues }) {
+    const [isOpen, setIsOpen] = useState(false);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [selectedState, setSelectedState] = useState(venues[0]);
+    const dropdownRef = useRef(null);
+
+    const filteredStates = venues.filter((venue) =>
+        venue.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (
+                dropdownRef.current &&
+                !dropdownRef.current.contains(event.target)
+            ) {
+                setIsOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () =>
+            document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
+    const handleStateSelect = (state) => {
+        setSelectedState(state);
+        setSearchTerm("");
+        setIsOpen(false);
+    };
+
     return (
         <section className="bg-gradient-to-b from-black via-[#000000BF] to-black w-full">
             {/* FIRST */}
@@ -55,6 +83,64 @@ export default function InfoSection() {
                 </div>
             </div>
 
+            <div ref={dropdownRef} className="relative max-w-xs mx-auto">
+                <div
+                    role="combobox"
+                    aria-expanded={isOpen}
+                    className="relative w-full"
+                >
+                    <div
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="flex items-center justify-between w-full px-2 bg-[#EFBF04] rounded-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                        <input
+                            type="text"
+                            aria-autocomplete="list"
+                            autoComplete="off"
+                            className="select select-bordered w-full bg-[#EFBF04] placeholder:text-black flex items-center font-semibold justify-center mx-auto border-none focus:outline-none"
+                            placeholder={selectedState.name || "MNC Center"}
+                            value={searchTerm}
+                            onChange={(e) => {
+                                setSearchTerm(e.target.value);
+                                setIsOpen(true);
+                            }}
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setIsOpen(true);
+                            }}
+                        />
+                    </div>
+
+                    {isOpen && (
+                        <div
+                            role="listbox"
+                            className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto"
+                        >
+                            {filteredStates.map((venue) => (
+                                <div
+                                    key={venue.id}
+                                    role="option"
+                                    aria-selected={selectedState === venue.name}
+                                    onClick={() => handleStateSelect(venue)}
+                                    className={`px-4 py-2 cursor-pointer hover:bg-gray-100 ${
+                                        selectedState === venue.name
+                                            ? "bg-gray-50"
+                                            : ""
+                                    }`}
+                                >
+                                    {venue.name}
+                                </div>
+                            ))}
+                            {filteredStates.length === 0 && (
+                                <div className="px-4 py-2 text-black">
+                                    No results found
+                                </div>
+                            )}
+                        </div>
+                    )}
+                </div>
+            </div>
+
             {/* SECOND */}
             <div className="lg:flex grid gap-10 items-center lg:justify-between mx-auto py-5 lg:px-20 px-5 w-full">
                 {/* Left Image */}
@@ -70,15 +156,11 @@ export default function InfoSection() {
                 <div className="lg:w-3/5 w-full">
                     {/* Info Title */}
                     <h2 className="text-center text-4xl text-[#EFBF04] font-extrabold">
-                        PBC iNews Tower
+                        {selectedState.name}
                     </h2>
 
                     {/* Info Details */}
-                    <div className="grid gap-5 mt-5">
-                        {info.map((item, index) => (
-                            <InfoDetailCard key={index} item={item} />
-                        ))}
-                    </div>
+                    <InfoDetailCard item={selectedState} />
 
                     {/* Facility Line */}
                     <div className="flex items-center justify-center my-5">
@@ -109,22 +191,6 @@ export default function InfoSection() {
         </section>
     );
 }
-
-const info = [
-    {
-        icon: <MdAttachMoney className="text-3xl" />,
-        description: "Start from Rp 100.000 / Hours",
-    },
-    {
-        icon: <BiSolidTimeFive className="text-3xl" />,
-        description: "Every Days : 10.00 AM - 10.00 PM",
-    },
-    {
-        icon: <FaMapLocationDot className="text-3xl" />,
-        description:
-            "Jl. K.H. Wahid Hasyim No.36-38, RT.15/RW.7, Kb. Sirih, Kec. Menteng, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10340",
-    },
-];
 
 const facility = [
     {
