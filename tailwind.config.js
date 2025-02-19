@@ -11,6 +11,12 @@ export default {
         "./resources/js/**/*.jsx",
     ],
 
+    variants: {
+        extend: {
+            translate: ["group-hover"],
+        },
+    },
+
     theme: {
         extend: {
             fontFamily: {

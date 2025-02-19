@@ -1,22 +1,17 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VenueController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', function () {
-    return Inertia::render('Homepage/index', [
-        'title' => "Pro Billiard Center",
-    ]);
-});
+Route::get('/', [VenueController::class, 'index']);
 
-Route::get("/booking", function() {
-    return Inertia::render("Booking/index", [
-        "title" => "Booking"
-    ]);
-});
+
+Route::get("/booking", [VenueController::class, 'booking']);
 
 Route::get("/shop", function() {
     return Inertia::render("Shop/index", [
@@ -29,6 +24,14 @@ Route::get("/contact", function() {
         "title" => "Contact"
     ]);
 });
+
+Route::get('/events', [EventController::class, 'index']);
+
+// Route::get("/event", function() {
+//     return Inertia::render("Event/index", [
+//         "title" => "Event"
+//     ]);
+// });
 
 // Route::get('/', function () {
 //     return Inertia::render('Homepage/Homepage', [
