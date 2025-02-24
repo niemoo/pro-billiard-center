@@ -3,8 +3,8 @@ import { BiSolidTimeFive } from "react-icons/bi";
 import { FaMapLocationDot } from "react-icons/fa6";
 
 export default function InfoDetailCard({ item }) {
-    const openTime = item.opening_time.split(":")[0];
-    const closeTime = item.closing_time.split(":")[0];
+    const openTime = item?.opening_time.split(":")[0];
+    const closeTime = item?.closing_time.split(":")[0];
     return (
         <div className="grid gap-5 mt-5">
             <div className="flex gap-5 text-lg font-semibold text-white">
@@ -23,7 +23,7 @@ export default function InfoDetailCard({ item }) {
                 <div>
                     <FaMapLocationDot className="text-3xl" />
                 </div>
-                <p>{item.address}</p>
+                <p>{item?.address}</p>
             </div>
         </div>
     );

@@ -8,7 +8,9 @@ import FacilityDetailCard from "../Components/FacilityDetailCard";
 export default function InfoSection({ venues }) {
     const [isOpen, setIsOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
-    const [selectedState, setSelectedState] = useState(venues[0]);
+    const [selectedState, setSelectedState] = useState(
+        venues ? venues[0] : null
+    );
     const dropdownRef = useRef(null);
 
     const filteredStates = venues.filter((venue) =>
@@ -42,7 +44,7 @@ export default function InfoSection({ venues }) {
             <div className="md:flex grid gap-10 justify-between items-center mx-auto p-10">
                 {/* Left Content */}
                 <div>
-                    <h3 className="text-left text-lg text-[#EFBF04] font-extrabold">
+                    <h3 className="text-left text-lg text-gold font-extrabold">
                         THE BIGGEST INDOOR
                     </h3>
                     <p className="text-left text-sm text-white">
@@ -56,7 +58,7 @@ export default function InfoSection({ venues }) {
 
                 {/* Center Content */}
                 <div>
-                    <h3 className="text-center text-lg text-[#EFBF04] font-extrabold">
+                    <h3 className="text-center text-lg text-gold font-extrabold">
                         EXCLUSIVE TABLE
                     </h3>
                     <p className="text-center text-sm text-white">
@@ -70,7 +72,7 @@ export default function InfoSection({ venues }) {
 
                 {/* Right Content */}
                 <div>
-                    <h3 className="text-right text-lg text-[#EFBF04] font-extrabold">
+                    <h3 className="text-right text-lg text-gold font-extrabold">
                         PREMIUM GEAR
                     </h3>
                     <p className="text-right text-sm text-white">
@@ -80,64 +82,6 @@ export default function InfoSection({ venues }) {
                         exercitation ullamco laboris nisi ut aliquip ex ea
                         commodo consequat.
                     </p>
-                </div>
-            </div>
-
-            <div ref={dropdownRef} className="relative max-w-xs mx-auto">
-                <div
-                    role="combobox"
-                    aria-expanded={isOpen}
-                    className="relative w-full"
-                >
-                    <div
-                        onClick={() => setIsOpen(!isOpen)}
-                        className="flex items-center justify-between w-full px-2 bg-[#EFBF04] rounded-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    >
-                        <input
-                            type="text"
-                            aria-autocomplete="list"
-                            autoComplete="off"
-                            className="select select-bordered w-full bg-[#EFBF04] placeholder:text-black flex items-center font-semibold justify-center mx-auto border-none focus:outline-none"
-                            placeholder={selectedState.name || "MNC Center"}
-                            value={searchTerm}
-                            onChange={(e) => {
-                                setSearchTerm(e.target.value);
-                                setIsOpen(true);
-                            }}
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                setIsOpen(true);
-                            }}
-                        />
-                    </div>
-
-                    {isOpen && (
-                        <div
-                            role="listbox"
-                            className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto"
-                        >
-                            {filteredStates.map((venue) => (
-                                <div
-                                    key={venue.id}
-                                    role="option"
-                                    aria-selected={selectedState === venue.name}
-                                    onClick={() => handleStateSelect(venue)}
-                                    className={`px-4 py-2 cursor-pointer hover:bg-gray-100 ${
-                                        selectedState === venue.name
-                                            ? "bg-gray-50"
-                                            : ""
-                                    }`}
-                                >
-                                    {venue.name}
-                                </div>
-                            ))}
-                            {filteredStates.length === 0 && (
-                                <div className="px-4 py-2 text-black">
-                                    No results found
-                                </div>
-                            )}
-                        </div>
-                    )}
                 </div>
             </div>
 
@@ -155,10 +99,70 @@ export default function InfoSection({ venues }) {
                 {/* Center Info */}
                 <div className="lg:w-3/5 w-full">
                     {/* Info Title */}
-                    <h2 className="text-center text-4xl text-[#EFBF04] font-extrabold">
-                        {selectedState.name}
-                    </h2>
+                    <div
+                        ref={dropdownRef}
+                        className="relative max-w-xs mx-auto"
+                    >
+                        <div
+                            role="combobox"
+                            aria-expanded={isOpen}
+                            className="relative w-full"
+                        >
+                            <div
+                                onClick={() => setIsOpen(!isOpen)}
+                                className="flex items-center justify-between w-full px-2 bg-gold rounded-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            >
+                                <input
+                                    type="text"
+                                    aria-autocomplete="list"
+                                    autoComplete="off"
+                                    className="select select-bordered w-full bg-gold text-xl text-center placeholder:text-black flex items-center font-semibold justify-center mx-auto border-none focus:outline-none"
+                                    placeholder={selectedState?.name || ""}
+                                    value={searchTerm}
+                                    onChange={(e) => {
+                                        setSearchTerm(e.target.value);
+                                        setIsOpen(true);
+                                    }}
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        setIsOpen(true);
+                                    }}
+                                />
+                            </div>
 
+                            {isOpen && (
+                                <div
+                                    role="listbox"
+                                    className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto"
+                                >
+                                    {filteredStates.map((venue) => (
+                                        <div
+                                            key={venue.id}
+                                            role="option"
+                                            aria-selected={
+                                                selectedState === venue.name
+                                            }
+                                            onClick={() =>
+                                                handleStateSelect(venue)
+                                            }
+                                            className={`px-4 py-2 cursor-pointer hover:bg-gray-100 ${
+                                                selectedState === venue.name
+                                                    ? "bg-gray-50"
+                                                    : ""
+                                            }`}
+                                        >
+                                            {venue.name}
+                                        </div>
+                                    ))}
+                                    {filteredStates.length === 0 && (
+                                        <div className="px-4 py-2 text-black">
+                                            No results found
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+                        </div>
+                    </div>
                     {/* Info Details */}
                     <InfoDetailCard item={selectedState} />
 

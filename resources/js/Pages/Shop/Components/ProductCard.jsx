@@ -12,7 +12,7 @@ export default function ProductCard({ product }) {
             <div className="w-full">
                 {/* Title */}
                 <div className="flex items-center gap-5">
-                    <h2 className="text-[#EFBF04] text-2xl font-semibold w-full">
+                    <h2 className="text-gold text-2xl font-semibold w-full">
                         {product.title}
                     </h2>
                     <div className="w-full h-[2px] bg-yellow-500"></div>
@@ -27,13 +27,13 @@ export default function ProductCard({ product }) {
 
                 <div className="flex items-center gap-10 lg:mt-10 mt-5">
                     {/* Price */}
-                    <p className="text-[#EFBF04] font-semibold ">
+                    <p className="text-gold font-semibold ">
                         {formatPrice(product.price)}
                     </p>
 
                     {/* Button Coming Soon */}
                     <button
-                        className="bg-[#EFBF04] px-7 py-2 rounded font-semibold"
+                        className="bg-gold px-7 py-2 rounded font-semibold"
                         disabled
                     >
                         Coming Soon

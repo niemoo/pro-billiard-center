@@ -12,7 +12,7 @@ export default function Booking(props) {
             <div className="bg-gradient-to-b from-black via-[#000000BF] to-black w-full pb-10">
                 <HighlightSection />
                 <BenefitSection />
-                <BookSection venues={props.venues.data} />
+                <BookSection venues={props?.venues?.data} />
             </div>
         </>
     );

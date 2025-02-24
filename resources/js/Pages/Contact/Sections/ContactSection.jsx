@@ -9,7 +9,7 @@ export default function ContactSection() {
     return (
         <>
             {/* Title */}
-            <h1 className="text-3xl text-center font-extrabold text-[#EFBF04]">
+            <h1 className="text-3xl text-center font-extrabold text-gold">
                 CONTACT
             </h1>
 

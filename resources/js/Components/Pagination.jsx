@@ -25,7 +25,7 @@ export default function Pagination({ meta }) {
             {current > 1 && (
                 <Link
                     href={meta.links[current - 1].url}
-                    className="join-item btn hover:bg-[#EFBF04]"
+                    className="join-item btn hover:bg-gold"
                 >
                     &laquo;
                 </Link>
@@ -36,7 +36,7 @@ export default function Pagination({ meta }) {
                 <Link
                     href={meta.links[1].url}
                     className={`join-item btn ${
-                        current === 1 ? "btn-active" : "hover:bg-[#EFBF04]"
+                        current === 1 ? "btn-active" : "hover:bg-gold"
                     }`}
                 >
                     1
@@ -55,8 +55,8 @@ export default function Pagination({ meta }) {
                         href={meta.links[page].url}
                         className={`join-item btn ${
                             current === page
-                                ? "btn-active bg-[#EFBF04]"
-                                : "hover:bg-[#EFBF04]"
+                                ? "btn-active bg-gold"
+                                : "hover:bg-gold"
                         }`}
                     >
                         {page}
@@ -69,7 +69,7 @@ export default function Pagination({ meta }) {
                 <Link
                     href={meta.links[last].url}
                     className={`join-item btn ${
-                        current === last ? "btn-active" : "hover:bg-[#EFBF04]"
+                        current === last ? "btn-active" : "hover:bg-gold"
                     }`}
                 >
                     {last}
@@ -80,7 +80,7 @@ export default function Pagination({ meta }) {
             {current < last && (
                 <Link
                     href={meta.links[current + 1].url}
-                    className="join-item btn hover:bg-[#EFBF04]"
+                    className="join-item btn hover:bg-gold"
                 >
                     &raquo;
                 </Link>

@@ -1,11 +1,14 @@
 export default function Membership({ selectedMembership, onSelectMembership }) {
     return (
         <>
+            {/* Title */}
             <h3 className="text-lg font-semibold text-white text-center">
                 Select Membership
             </h3>
 
+            {/* Membership */}
             <div className="flex lg:flex-row flex-col justify-center gap-5">
+                {/* Left Platinum Card */}
                 <button
                     type="button"
                     onClick={() => onSelectMembership("PLATINUM")}
@@ -36,13 +39,13 @@ export default function Membership({ selectedMembership, onSelectMembership }) {
                         </ul>
                     </div>
                 </button>
+
+                {/* Center Gold Card */}
                 <button
                     type="button"
                     onClick={() => onSelectMembership("GOLD")}
-                    className={`text-center w-full rounded-md px-5 py-3 text-white hover:bg-[#EFBF04] transition-all duration-300 border border-[#EFBF04] ${
-                        selectedMembership === "GOLD"
-                            ? "bg-[#EFBF04]"
-                            : "bg-black"
+                    className={`text-center w-full rounded-md px-5 py-3 text-white hover:bg-gold transition-all duration-300 border border-gold ${
+                        selectedMembership === "GOLD" ? "bg-gold" : "bg-black"
                     }`}
                 >
                     <div
@@ -64,6 +67,8 @@ export default function Membership({ selectedMembership, onSelectMembership }) {
                         </ul>
                     </div>
                 </button>
+
+                {/* Right Silver Card */}
                 <button
                     type="button"
                     onClick={() => onSelectMembership("SILVER")}
