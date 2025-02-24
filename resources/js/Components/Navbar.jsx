@@ -1,16 +1,15 @@
-import { authItems, menuItems } from "@/Data/menu";
-import { Link, useForm, usePage } from "@inertiajs/react";
-import Checkbox from "@/Components/Checkbox";
-import InputError from "@/Components/InputError";
 import { useState } from "react";
-import Dropdown from "@/Components/Dropdown";
+import { Link, useForm, usePage } from "@inertiajs/react";
 import toast from "react-hot-toast";
+import { authItems, menuItems } from "@/Data/menu";
+import Checkbox from "@/Components/Checkbox";
+import Dropdown from "@/Components/Dropdown";
+import InputError from "@/Components/InputError";
 
 export default function Navbar() {
     const { url } = usePage();
     const [isOpen, setIsOpen] = useState(false);
     const user = usePage().props.auth.user;
-    console.log(user);
 
     const { data, setData, post, processing, errors, reset } = useForm({
         email: "",
@@ -19,8 +18,6 @@ export default function Navbar() {
     });
 
     const isActive = (path) => (url === path ? "text-gold" : "text-white");
-
-    console.log(errors);
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
@@ -82,6 +79,9 @@ export default function Navbar() {
                             </Dropdown.Trigger>
 
                             <Dropdown.Content>
+                                <Dropdown.Link href="/">
+                                    Platinum Membership
+                                </Dropdown.Link>
                                 <Dropdown.Link href={route("profile.edit")}>
                                     Profile
                                 </Dropdown.Link>

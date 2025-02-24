@@ -25,7 +25,11 @@ Route::get("/contact", function() {
     ]);
 });
 
-Route::get('/events', [EventController::class, 'index']);
+Route::get('/events', function() {
+    return Inertia::render("Event/index", [
+        "title" => "Events"
+    ]);
+});
 
 Route::get('/signup', function() {
     return Inertia::render("SignUp/index", [

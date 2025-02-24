@@ -31,7 +31,7 @@ export default function HighlightSection() {
                         Booking Policy
                     </h2>
 
-                    <div className="flex w-full justify-between mt-5">
+                    <div className="w-full flex justify-between mt-5">
                         <div>
                             <ul className="grid gap-2">
                                 {bookingPolicy.map((item, index) => (
@@ -47,7 +47,7 @@ export default function HighlightSection() {
             </div>
 
             {/* Right Side Image */}
-            <div className="lg:mt-0 mt-10 lg:w-1/2 w-full">
+            <div className="w-full mt-10 lg:mt-0 lg:w-1/2">
                 <img src="images/booking_highlight_section.png" alt="" />
             </div>
         </div>

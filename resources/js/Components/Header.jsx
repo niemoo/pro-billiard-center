@@ -1,6 +1,6 @@
-import { authItems, menuItems } from "@/Data/menu";
-import { Link, usePage } from "@inertiajs/react";
 import { useState } from "react";
+import { Link, usePage } from "@inertiajs/react";
+import { authItems, menuItems } from "@/Data/menu";
 
 export default function Header() {
     const { url } = usePage();

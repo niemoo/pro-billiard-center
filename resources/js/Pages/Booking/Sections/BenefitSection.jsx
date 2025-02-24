@@ -5,7 +5,7 @@ export default function BenefitSection() {
             <div className="w-full">
                 <img
                     src="images/benefit_section.png"
-                    alt=""
+                    alt="Left Side Image"
                     className="w-full"
                 />
                 <h3 className="text-center text-2xl font-bold text-gold">
@@ -32,7 +32,7 @@ export default function BenefitSection() {
             <div className="w-full">
                 <img
                     src="images/benefit_section.png"
-                    alt=""
+                    alt="Right Side Image"
                     className="w-full"
                 />
                 <h3 className="text-center text-2xl font-bold text-gold">
