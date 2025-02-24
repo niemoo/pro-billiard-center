@@ -20,7 +20,7 @@ export default function HeroSection() {
                         {/* Title */}
                         <div className="flex items-center justify-end my-5">
                             <div className="w-full h-[2px] bg-yellow-500"></div>
-                            <h2 className="text-2xl md:text-3xl text-[#EFBF04] font-bold pl-4 w-full">
+                            <h2 className="text-2xl md:text-3xl text-gold font-bold pl-4 w-full">
                                 About Us
                             </h2>
                         </div>

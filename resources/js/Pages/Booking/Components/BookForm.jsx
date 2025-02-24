@@ -3,10 +3,12 @@ import React, { useState, useRef, useEffect } from "react";
 export default function BookForm({ venues }) {
     const [isOpen, setIsOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
-    const [selectedState, setSelectedState] = useState(venues[0]);
+    const [selectedState, setSelectedState] = useState(
+        venues ? venues[0] : null
+    );
     const dropdownRef = useRef(null);
 
-    const filteredStates = venues.filter((state) =>
+    const filteredStates = venues?.filter((state) =>
         state.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
@@ -41,14 +43,14 @@ export default function BookForm({ venues }) {
                 >
                     <div
                         onClick={() => setIsOpen(!isOpen)}
-                        className="flex items-center justify-between w-full px-2 bg-[#EFBF04] rounded-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="flex items-center justify-between w-full px-2 bg-gold rounded-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
                         <input
                             type="text"
                             aria-autocomplete="list"
                             autoComplete="off"
-                            className="select select-bordered w-full bg-[#EFBF04] placeholder:text-black flex items-center font-semibold justify-center mx-auto border-none focus:outline-none"
-                            placeholder={selectedState.name || "MNC Center"}
+                            className="select select-bordered w-full bg-gold placeholder:text-black flex items-center font-semibold justify-center mx-auto border-none focus:outline-none"
+                            placeholder={selectedState?.name || ""}
                             value={searchTerm}
                             onChange={(e) => {
                                 setSearchTerm(e.target.value);
@@ -68,17 +70,19 @@ export default function BookForm({ venues }) {
                         >
                             {filteredStates.map((venue) => (
                                 <div
-                                    key={venue.id}
+                                    key={venue?.id}
                                     role="option"
-                                    aria-selected={selectedState === venue.name}
+                                    aria-selected={
+                                        selectedState === venue?.name
+                                    }
                                     onClick={() => handleStateSelect(venue)}
                                     className={`px-4 py-2 cursor-pointer hover:bg-gray-100 ${
-                                        selectedState === venue.name
+                                        selectedState === venue?.name
                                             ? "bg-gray-50"
                                             : ""
                                     }`}
                                 >
-                                    {venue.name}
+                                    {venue?.name}
                                 </div>
                             ))}
                             {filteredStates.length === 0 && (
@@ -97,7 +101,7 @@ export default function BookForm({ venues }) {
                     <div className="text-black grid gap-2">
                         <label
                             htmlFor="name"
-                            className="text-[#EFBF04] font-semibold"
+                            className="text-gold font-semibold"
                         >
                             Full Name
                         </label>
@@ -105,13 +109,13 @@ export default function BookForm({ venues }) {
                             type="text"
                             id="name"
                             name="name"
-                            className="rounded-md bg-[#FFFFFF]/50"
+                            className="rounded-md bg-darkgrey/50"
                         />
                     </div>
                     <div className="text-black grid gap-2">
                         <label
                             htmlFor="email"
-                            className="text-[#EFBF04] font-semibold"
+                            className="text-gold font-semibold"
                         >
                             Email
                         </label>
@@ -119,13 +123,13 @@ export default function BookForm({ venues }) {
                             type="text"
                             id="email"
                             name="email"
-                            className="rounded-md bg-[#FFFFFF]/50"
+                            className="rounded-md bg-darkgrey/50"
                         />
                     </div>
                     <div className="text-black grid gap-2">
                         <label
                             htmlFor="phoneNumber"
-                            className="text-[#EFBF04] font-semibold"
+                            className="text-gold font-semibold"
                         >
                             Phone Number
                         </label>
@@ -133,20 +137,20 @@ export default function BookForm({ venues }) {
                             type="text"
                             id="phoneNumber"
                             name="phoneNumber"
-                            className="rounded-md bg-[#FFFFFF]/50"
+                            className="rounded-md bg-darkgrey/50"
                         />
                     </div>
                     <div className="text-black grid gap-2">
                         <label
                             htmlFor="category"
-                            className="text-[#EFBF04] font-semibold"
+                            className="text-gold font-semibold"
                         >
                             Category
                         </label>
                         <select
                             id="category"
                             name="category"
-                            className="rounded-md bg-[#FFFFFF]/50"
+                            className="rounded-md bg-darkgrey/50"
                         >
                             <option value="VIP" className="text-black">
                                 VIP
@@ -159,7 +163,7 @@ export default function BookForm({ venues }) {
                     <div className="text-black grid gap-2">
                         <label
                             htmlFor="date"
-                            className="text-[#EFBF04] font-semibold"
+                            className="text-gold font-semibold"
                         >
                             Select Date
                         </label>
@@ -167,14 +171,14 @@ export default function BookForm({ venues }) {
                             type="date"
                             id="date"
                             name="date"
-                            className="rounded-md bg-[#FFFFFF]/50"
+                            className="rounded-md bg-darkgrey/50"
                         />
                     </div>
                     <div className="flex gap-5 w-full">
                         <div className="text-black grid gap-2 w-full">
                             <label
                                 htmlFor="hours"
-                                className="text-[#EFBF04] font-semibold"
+                                className="text-gold font-semibold"
                             >
                                 Start Time
                             </label>
@@ -182,13 +186,13 @@ export default function BookForm({ venues }) {
                                 type="time"
                                 id="hours"
                                 name="hours"
-                                className="rounded-md bg-[#FFFFFF]/50"
+                                className="rounded-md bg-darkgrey/50"
                             />
                         </div>
                         <div className="text-black grid gap-2 w-full">
                             <label
                                 htmlFor="hours"
-                                className="text-[#EFBF04] font-semibold"
+                                className="text-gold font-semibold"
                             >
                                 End Time
                             </label>
@@ -196,7 +200,7 @@ export default function BookForm({ venues }) {
                                 type="time"
                                 id="hours"
                                 name="hours"
-                                className="rounded-md bg-[#FFFFFF]/50"
+                                className="rounded-md bg-darkgrey/50"
                             />
                         </div>
                     </div>
@@ -215,7 +219,7 @@ export default function BookForm({ venues }) {
                     </div>
 
                     {/* Button Book Now */}
-                    <button className="lg:w-1/4 w-full lg:ml-20 ml-0 lg:mt-0 mt-10 py-3 rounded-md bg-[#EFBF04] hover:bg-[#b69927] text-black font-semibold transition-all duration-300">
+                    <button className="lg:w-1/4 w-full lg:ml-20 ml-0 lg:mt-0 mt-10 py-3 rounded-md bg-gold hover:bg-[#b69927] text-black font-semibold transition-all duration-300">
                         Book Now
                     </button>
                 </div>

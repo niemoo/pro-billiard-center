@@ -6,7 +6,4 @@ export const menuItems = [
     { name: "Contact Us", path: "/contact" },
 ];
 
-export const authItems = [
-    { name: "MEMBERSHIP", path: "/register" },
-    { name: "SIGN IN", path: "/login" },
-];
+export const authItems = [{ name: "MEMBERSHIP", path: "/signup" }];

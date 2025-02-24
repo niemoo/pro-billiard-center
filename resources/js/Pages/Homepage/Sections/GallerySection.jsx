@@ -85,7 +85,7 @@ const GallerySection = () => {
 
     return (
         <section className="bg-black p-5">
-            <h2 className="text-center text-4xl text-[#EFBF04] font-extrabold mb-8">
+            <h2 className="text-center text-4xl text-gold font-extrabold mb-8">
                 Gallery
             </h2>
 

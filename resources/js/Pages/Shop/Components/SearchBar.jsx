@@ -3,7 +3,7 @@ import { IoSearch, IoCartOutline } from "react-icons/io5";
 export default function SearchBar() {
     return (
         <div className="mx-auto my-10 max-w-screen-sm lg:px-0 px-10">
-            {/* <div className="flex items-center mx-auto rounded-md bg-[#EFBF04] lg:w-1/2 w-full">
+            {/* <div className="flex items-center mx-auto rounded-md bg-gold lg:w-1/2 w-full">
                 <div className="flex items-center bg-zinc-400 rounded-l-md w-full">
                     <div className="px-2">
                         <IoSearch className="text-black" />
@@ -54,7 +54,7 @@ export default function SearchBar() {
                         placeholder="Search"
                         required
                     />
-                    <button className="flex items-center gap-2 h-full text-black absolute end-0 bottom-0 bg-[#EFBF04] hover:bg-[#d6b329] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-r-md text-sm px-4 py-2 ">
+                    <button className="flex items-center gap-2 h-full text-black absolute end-0 bottom-0 bg-gold hover:bg-[#d6b329] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-r-md text-sm px-4 py-2 ">
                         <p className="font-semibold">Cart</p>
                         <div>
                             <IoCartOutline className="text-black text-xl" />

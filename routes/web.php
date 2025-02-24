@@ -8,7 +8,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', [VenueController::class, 'index']);
+Route::get('/', [VenueController::class, 'index'])->name('homepage');
 
 
 Route::get("/booking", [VenueController::class, 'booking']);
@@ -27,11 +27,17 @@ Route::get("/contact", function() {
 
 Route::get('/events', [EventController::class, 'index']);
 
-// Route::get("/event", function() {
-//     return Inertia::render("Event/index", [
-//         "title" => "Event"
-//     ]);
-// });
+Route::get('/signup', function() {
+    return Inertia::render("SignUp/index", [
+        "title" => "Signup"
+    ]);
+});
+
+Route::get('/signin', function() {
+    return Inertia::render("SignIn/index", [
+        "title" => "Signin"
+    ]);
+});
 
 // Route::get('/', function () {
 //     return Inertia::render('Homepage/Homepage', [

@@ -9,17 +9,15 @@ export default function Footer() {
     return (
         <footer className="bg-black">
             {/* First Footer */}
-            <div className="w-full lg:flex grid lg:gap-0 gap-10 justify-between mx-auto p-10 border-y-2 border-[#EFBF04]">
+            <div className="w-full lg:flex grid lg:gap-0 gap-10 justify-between mx-auto p-10 border-y-2 border-gold">
                 {/* Address */}
                 <div className="flex lg:w-1/3 w-full text-white">
                     <div className="flex gap-5 mx-auto">
-                        <div className="text-3xl text-[#EFBF04]">
+                        <div className="text-3xl text-gold">
                             <GrLocation />
                         </div>
                         <div className="text-white">
-                            <p className="text-xl text-[#EFBF04]">
-                                Headquarters
-                            </p>
+                            <p className="text-xl text-gold">Headquarters</p>
                             <p className="mt-2">
                                 Jl. K.H. Wahid Hasyim No.36-38, RT.15/RW.7, Kb.
                                 Sirih, Kec. Menteng, Kota Jakarta Pusat, Daerah
@@ -32,11 +30,11 @@ export default function Footer() {
                 {/* Contact */}
                 <div className="flex lg:w-1/3 w-full text-white">
                     <div className="flex gap-5 lg:mx-auto">
-                        <div className="text-3xl text-[#EFBF04]">
+                        <div className="text-3xl text-gold">
                             <LuPhoneCall />
                         </div>
                         <div className="text-white">
-                            <p className="text-xl text-[#EFBF04]">Contact</p>
+                            <p className="text-xl text-gold">Contact</p>
                             <div className="mt-2">
                                 <p>08123456789</p>
                                 <p>PBC@gmail.com</p>
@@ -48,11 +46,11 @@ export default function Footer() {
                 {/* Help */}
                 <div className="flex lg:w-1/3 w-full text-white">
                     <div className="flex gap-5 lg:mx-auto">
-                        <div className="text-3xl text-[#EFBF04]">
+                        <div className="text-3xl text-gold">
                             <CgDanger />
                         </div>
                         <div className="text-white">
-                            <p className="text-xl text-[#EFBF04]">Help</p>
+                            <p className="text-xl text-gold">Help</p>
                             <div className="mt-2">
                                 <p>FAQ</p>
                                 <p>Terms and Conditions</p>
@@ -66,25 +64,25 @@ export default function Footer() {
                 {/* Menu */}
                 <div className="flex lg:w-1/3 w-full text-white">
                     <div className="flex gap-5 lg:mx-auto">
-                        <div className="text-3xl text-[#EFBF04]">
+                        <div className="text-3xl text-gold">
                             <RxDashboard />
                         </div>
                         <div className="text-white">
-                            <p className="text-xl text-[#EFBF04]">Menu</p>
+                            <p className="text-xl text-gold">Menu</p>
                             <ul className="mt-2">
-                                <li className="hover:text-[#EFBF04]">
+                                <li className="hover:text-gold">
                                     <Link href="/">Home </Link>
                                 </li>
-                                <li className="hover:text-[#EFBF04]">
+                                <li className="hover:text-gold">
                                     <Link href="/booking">Booking</Link>
                                 </li>
-                                <li className="hover:text-[#EFBF04]">
+                                <li className="hover:text-gold">
                                     <Link href="/shop">Shop</Link>
                                 </li>
-                                <li className="hover:text-[#EFBF04]">
+                                <li className="hover:text-gold">
                                     <Link href="/events">Event</Link>
                                 </li>
-                                <li className="hover:text-[#EFBF04]">
+                                <li className="hover:text-gold">
                                     <Link href="/contact">Contact Us</Link>
                                 </li>
                             </ul>
@@ -95,18 +93,23 @@ export default function Footer() {
 
             {/* Second Footer */}
             <div className="lg:flex grid gap-10 lg:justify-between justify-center items-center py-5 px-10">
+                {/* Tiktok */}
                 <div className="flex justify-center items-center gap-5">
                     <div>
-                        <FaTiktok className="text-2xl text-[#EFBF04]" />
+                        <FaTiktok className="text-2xl text-gold" />
                     </div>
                     <p className="text-white">probilliardcenter</p>
                 </div>
+
+                {/* Website */}
                 <div className="flex justify-center items-center gap-5">
-                    <p className="text-white">www.ProBilliardCenter.com</p>
+                    <p className="text-white">www.probilliardcenter.com</p>
                 </div>
+
+                {/* Instagram */}
                 <div className="flex justify-center items-center gap-5">
                     <div>
-                        <FaInstagram className="text-2xl text-[#EFBF04]" />
+                        <FaInstagram className="text-2xl text-gold" />
                     </div>
                     <p className="text-white">probilliardcenter</p>
                 </div>

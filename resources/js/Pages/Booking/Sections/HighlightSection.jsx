@@ -5,20 +5,18 @@ export default function HighlightSection() {
             <div className="text-white lg:w-1/2 w-full pt-10">
                 {/* Highlight */}
                 <div>
-                    <h2 className="text-3xl font-bold text-[#EFBF04]">
-                        Highlight
-                    </h2>
+                    <h2 className="text-3xl font-bold text-gold">Highlight</h2>
 
                     <div className="flex w-full justify-between mt-5">
                         <div>
-                            <h3 className="font-bold text-[#EFBF04]">REG:</h3>
+                            <h3 className="font-bold text-gold">REG:</h3>
                             <ul className="grid gap-2">
                                 <li>Weekdays Rp 50.000/Hours</li>
                                 <li>Weekdays Rp 100.000/Hours</li>
                             </ul>
                         </div>
                         <div>
-                            <h3 className="font-bold text-[#EFBF04]">VIP:</h3>
+                            <h3 className="font-bold text-gold">VIP:</h3>
                             <ul className="grid gap-2">
                                 <li>Weekdays Rp 100.000/Hours</li>
                                 <li>Weekdays Rp 200.000/Hours</li>
@@ -29,7 +27,7 @@ export default function HighlightSection() {
 
                 {/* Booking Policy */}
                 <div className="mt-10">
-                    <h2 className="text-3xl font-bold text-[#EFBF04]">
+                    <h2 className="text-3xl font-bold text-gold">
                         Booking Policy
                     </h2>
 
@@ -38,9 +36,7 @@ export default function HighlightSection() {
                             <ul className="grid gap-2">
                                 {bookingPolicy.map((item, index) => (
                                     <li key={index}>
-                                        <span className="text-[#EFBF04]">
-                                            -
-                                        </span>{" "}
+                                        <span className="text-gold">-</span>{" "}
                                         {item.description}
                                     </li>
                                 ))}

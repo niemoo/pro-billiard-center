@@ -8,24 +8,22 @@ export default function BenefitSection() {
                     alt=""
                     className="w-full"
                 />
-                <h3 className="text-center text-2xl font-bold text-[#EFBF04]">
+                <h3 className="text-center text-2xl font-bold text-gold">
                     VIP
                 </h3>
-                <p className="text-lg font-bold text-[#EFBF04] mt-5">
-                    Benefit :
-                </p>
+                <p className="text-lg font-bold text-gold mt-5">Benefit :</p>
                 <ul className="grid gap-2 text-white">
                     <li>
-                        <span className="text-[#EFBF04]">-</span> Glove
+                        <span className="text-gold">-</span> Glove
                     </li>
                     <li>
-                        <span className="text-[#EFBF04]">-</span> Sofa
+                        <span className="text-gold">-</span> Sofa
                     </li>
                     <li>
-                        <span className="text-[#EFBF04]">-</span> Snack
+                        <span className="text-gold">-</span> Snack
                     </li>
                     <li>
-                        <span className="text-[#EFBF04]">-</span> Drink
+                        <span className="text-gold">-</span> Drink
                     </li>
                 </ul>
             </div>
@@ -37,18 +35,16 @@ export default function BenefitSection() {
                     alt=""
                     className="w-full"
                 />
-                <h3 className="text-center text-2xl font-bold text-[#EFBF04]">
+                <h3 className="text-center text-2xl font-bold text-gold">
                     REG
                 </h3>
-                <p className="text-lg font-bold text-[#EFBF04] mt-5">
-                    Benefit :
-                </p>
+                <p className="text-lg font-bold text-gold mt-5">Benefit :</p>
                 <ul className="grid gap-2 text-white">
                     <li>
-                        <span className="text-[#EFBF04]">-</span> Glove
+                        <span className="text-gold">-</span> Glove
                     </li>
                     <li>
-                        <span className="text-[#EFBF04]">-</span> Drink
+                        <span className="text-gold">-</span> Drink
                     </li>
                 </ul>
             </div>
